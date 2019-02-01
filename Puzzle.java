@@ -5,17 +5,9 @@ import java.io.*;
 import javax.imageio.*;
 import java.util.*;
 import java.awt.event.*;
-//import java.net.*;
 
 /**
  * Matthew Miles
- * 
- * Last edited 24 Jan 2019
- *
- * Puzzle.java
- * Computer program of variable size slider puzzle
- * 
- * Demo of this working can be found at https://youtu.be/AjrbEXrm8j8
  */
 
 public class Puzzle
@@ -28,20 +20,17 @@ public class Puzzle
   private int[] order;
   private int time = 0, size = 3; //
   private Random rng;
-  //private URL url;
   
   public Puzzle()
   {
     f = new JFrame();
     p = new JPanel(new GridLayout(size,size));
 
+    //read image for file icon
     try {icon = ImageIO.read(new File("icon.png"));} 
     catch (IOException e) {}
     
-    //try {url = new URL(" ENTER URL HERE ");}
-    //catch (MalformedURLException e) {}
-    
-    //read image
+    //read image for puzzle
     try {image = ImageIO.read(new File("fsu.png"));} 
     catch (IOException e) {}
     
@@ -64,6 +53,7 @@ public class Puzzle
         array[count] = b;
         order[count] = count;
         final int c = count;
+        //the action that occurs when the button is pressed
         b.addActionListener(new ActionListener() {
           @Override
           public void actionPerformed(ActionEvent evt) {
